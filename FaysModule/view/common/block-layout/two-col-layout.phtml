@@ -1,0 +1,48 @@
+<div>
+
+    <div class="row">
+        <div class="col-6">
+            <?= $this->html1 ?>
+        </div>
+        <div class="col-6">
+            <?php foreach($listings as $i=>$listing): ?>
+                <?php
+                echo '<div>' . $listing['img'] . '</div>';
+                ?>
+            <?php endforeach; ?>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="fays-block">
+                <a href="<?= $this->link1 ?>">
+                    <?= $this->link1Text ?>
+                </a>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="fays-block">
+                <a href="<?= $this->link2 ?>">
+                    <?= $this->link2Text ?>
+                </a>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="fays-block">
+                <a href="<?= $this->link3 ?>">
+                    <?= $this->link3Text ?>
+                </a>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="fays-block">
+                <a href="<?= $this->link4 ?>">
+                    <?= $this->link4Text ?>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
