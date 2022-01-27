@@ -18,37 +18,18 @@ use Zend\Form\Form;
 
 use Zend\Log\LoggerInterface;
 
-class HomeLayout extends AbstractBlockLayout {
-    private $text;
-    private $logger;
-    protected $htmlPurifier;
+class FourLinks extends AbstractBlockLayout {
 
-
-    public function __construct($text, LoggerInterface $logger, $htmlPurifier) {
-        $this->text = $text;
-        $this->logger = $logger;
-        $this->htmlPurifier = $htmlPurifier;
-    }
 
     public function getLabel() {
-        return "FAYS Home Layout";
+        return "FAYS Four Links";
     }
-
-    public function onHydrate(SitePageBlock $block, ErrorStore $errorStore)
-    {
-        $data = $block->getData();
-        $html = isset($data['html']) ? $this->htmlPurifier->purify($data['html']) : '';
-        $data['html'] = $html;
-        $block->setData($data);
-    }
-
 
     public function form(PhpRenderer $view, SiteRepresentation $site,
         SitePageRepresentation $page = null, SitePageBlockRepresentation $block = null
     ) {
+
         $defaults = [
-            'heading1' => 'Welcome to the archive...',
-            'heading2' => 'an extensive range of resources to explore.',
             'link1' => '/s/fays/browse',
             'link1Text' => 'Browse the collections >>',
             'link2' => '/s/fays/search',
@@ -57,37 +38,12 @@ class HomeLayout extends AbstractBlockLayout {
             'link3Text' => 'Explore our exhibitions >>',
             'link4' => '/s/fays/page/about',
             'link4Text' => 'Read more about us >>',
-            'html' => ''
         ];
-
-        $textarea = new Textarea(Utility::fieldName('html'));
-        $textarea->setAttribute('class', 'block-html full wysiwyg');
-        if ($block) {
-            $textarea->setAttribute('value', $block->dataValue('html'));
-        }
 
         $data = is_null($block) ? [] : $block->data();
         $values = array_merge($defaults, $data);
 
         $form = new Form();
-
-        $form->add([
-            'name' => Utility::fieldName('heading1'),
-            'type' => Element\Text::class,
-            'options' => [
-                'label' => 'Welcome 1 content',
-                'info' => 'This text will be displayed first.',
-            ]
-        ]);
-
-        $form->add([
-            'name' => Utility::fieldName('heading2'),
-            'type' => Element\Text::class,
-            'options' => [
-                'label' => 'Welcome 2 content',
-                'info' => 'This text will be displayed second.',
-            ]
-        ]);
 
 
         $form->add([
@@ -95,6 +51,7 @@ class HomeLayout extends AbstractBlockLayout {
             'type' => Element\Text::class,
             'options' => [ 'label' => 'Link 1', 'info' => 'Link 1 url.']
         ]);
+
         $form->add([
             'name' => Utility::fieldName('link1Text'),
             'type' => Element\Text::class,
@@ -137,14 +94,7 @@ class HomeLayout extends AbstractBlockLayout {
             'options' => [ 'label' => 'Link 4 Text', 'info' => 'Link 4 text.']
         ]);
 
-
-
-        $form->add($textarea);
-
         $form->setData([
-            Utility::fieldName('heading1') => $values['heading1'],
-            Utility::fieldName('heading2') => $values['heading2'],
-
             Utility::fieldName('link1') => $values['link1'],
             Utility::fieldName('link1Text') => $values['link1Text'],
 
@@ -157,21 +107,19 @@ class HomeLayout extends AbstractBlockLayout {
             Utility::fieldName('link4') => $values['link4'],
             Utility::fieldName('link4Text') => $values['link4Text'],
 
-            Utility::fieldName('html') => $values['html'],
         ]);
+
         return $view->formCollection($form);
     }
 
 	public function render(
         PhpRenderer $view, SitePageBlockRepresentation $block
     ) {
-        //        throw new \Exception('no ' + get_class($view->getServiceLocator()));
 
-//        $c1 = $block->dataValue('content1');
-//        $this->logger->debug("inside action bubble render", [$c1]);
+
 
         return $view->partial(
-            'common/block-layout/home-layout',
+            'common/block-layout/four-links',
             [
                 'heading1' => $block->dataValue('heading1'),
                 'heading2' => $block->dataValue('heading2'),
@@ -188,9 +136,6 @@ class HomeLayout extends AbstractBlockLayout {
                 'link4' => $block->dataValue('link4'),
                 'link4Text' => $block->dataValue('link4Text'),
 
-                'html' => $block->dataValue('html'),
-
-                'home' => true
             ]
         );
     }

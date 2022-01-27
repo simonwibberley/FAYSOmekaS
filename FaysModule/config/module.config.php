@@ -19,6 +19,10 @@ return [
         ],
         'invokables' => [
 //            'faysHomeLayout' => Site\BlockLayout\HomeLayout::class
+            'faysFourLinks' => Site\BlockLayout\FourLinks::class,
+            'faysCol' => Site\BlockLayout\Col::class,
+            'faysRow' => Site\BlockLayout\Row::class,
+            'faysEnd' => Site\BlockLayout\End::class
         ]
     ],
     'view_helpers' => [

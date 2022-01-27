@@ -48,14 +48,6 @@ class TwoColLayout extends AbstractBlockLayout {
     ) {
 
         $defaults = [
-            'link1' => '',
-            'link1Text' => '',
-            'link2' => '',
-            'link2Text' => '',
-            'link3' => '',
-            'link3Text' => '',
-            'link4' => '',
-            'link4Text' => '',
             'html1' => '',
 //            'html2' => ''
         ];
@@ -79,66 +71,8 @@ class TwoColLayout extends AbstractBlockLayout {
         $form->add($textarea1);
 //        $form->add($textarea2);
 
-        $form->add([
-            'name' => Utility::fieldName('link1'),
-            'type' => Element\Text::class,
-            'options' => [ 'label' => 'Link 1', 'info' => 'Link 1 url.']
-        ]);
-
-        $form->add([
-            'name' => Utility::fieldName('link1Text'),
-            'type' => Element\Text::class,
-            'options' => [ 'label' => 'Link 1 Text', 'info' => 'Link 1 text.']
-        ]);
-
-
-        $form->add([
-            'name' => Utility::fieldName('link2'),
-            'type' => Element\Text::class,
-            'options' => [ 'label' => 'Link 2', 'info' => 'Link 2 url.']
-        ]);
-        $form->add([
-            'name' => Utility::fieldName('link2Text'),
-            'type' => Element\Text::class,
-            'options' => [ 'label' => 'Link 2 Text', 'info' => 'Link 2 text.']
-        ]);
-
-
-        $form->add([
-            'name' => Utility::fieldName('link3'),
-            'type' => Element\Text::class,
-            'options' => [ 'label' => 'Link 3', 'info' => 'Link 3 url.']
-        ]);
-        $form->add([
-            'name' => Utility::fieldName('link3Text'),
-            'type' => Element\Text::class,
-            'options' => [ 'label' => 'Link 3 Text', 'info' => 'Link 3 text.']
-        ]);
-
-
-        $form->add([
-            'name' => Utility::fieldName('link4'),
-            'type' => Element\Text::class,
-            'options' => [ 'label' => 'Link 4', 'info' => 'Link 4 url.']
-        ]);
-        $form->add([
-            'name' => Utility::fieldName('link4Text'),
-            'type' => Element\Text::class,
-            'options' => [ 'label' => 'Link 4 Text', 'info' => 'Link 4 text.']
-        ]);
 
         $form->setData([
-            Utility::fieldName('link1') => $values['link1'],
-            Utility::fieldName('link1Text') => $values['link1Text'],
-
-            Utility::fieldName('link2') => $values['link2'],
-            Utility::fieldName('link2Text') => $values['link2Text'],
-
-            Utility::fieldName('link3') => $values['link3'],
-            Utility::fieldName('link3Text') => $values['link3Text'],
-
-            Utility::fieldName('link4') => $values['link4'],
-            Utility::fieldName('link4Text') => $values['link4Text'],
 
             Utility::fieldName('html1') => $values['html1'],
 //            Utility::fieldName('html2') => $values['html2'],
@@ -177,19 +111,6 @@ class TwoColLayout extends AbstractBlockLayout {
             [
                 'heading1' => $block->dataValue('heading1'),
                 'heading2' => $block->dataValue('heading2'),
-
-                'link1' => $block->dataValue('link1'),
-                'link1Text' => $block->dataValue('link1Text'),
-
-                'link2' => $block->dataValue('link2'),
-                'link2Text' => $block->dataValue('link2Text'),
-
-                'link3' => $block->dataValue('link3'),
-                'link3Text' => $block->dataValue('link3Text'),
-
-                'link4' => $block->dataValue('link4'),
-                'link4Text' => $block->dataValue('link4Text'),
-
                 'html1' => $block->dataValue('html1'),
 //                'html2' => $block->dataValue('html2'),
                 'listings' => $listings
