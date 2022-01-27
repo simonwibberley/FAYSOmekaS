@@ -22,7 +22,8 @@ return [
             'faysFourLinks' => Site\BlockLayout\FourLinks::class,
             'faysCol' => Site\BlockLayout\Col::class,
             'faysRow' => Site\BlockLayout\Row::class,
-            'faysEnd' => Site\BlockLayout\End::class
+            'faysEnd' => Site\BlockLayout\End::class,
+            'faysLink' => Site\BlockLayout\Link::class,
         ]
     ],
     'view_helpers' => [
