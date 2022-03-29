@@ -20,7 +20,6 @@ use Zend\Log\LoggerInterface;
 
 class Col extends AbstractBlockLayout {
 
-
     public function getLabel() {
         return "FAYS Col";
     }
@@ -30,7 +29,7 @@ class Col extends AbstractBlockLayout {
     ) {
 
         $defaults = [
-            'col' => '12'
+            'col' => 'sm12'
         ];
 
         $data = is_null($block) ? [] : $block->data();
@@ -41,7 +40,7 @@ class Col extends AbstractBlockLayout {
 
         $form->add([
             'name' => Utility::fieldName('col'),
-            'type' => Element\Number::class,
+            'type' => Element\Text::class,
             'options' => [ 'label' => 'Col width']
         ]);
 
@@ -56,10 +55,19 @@ class Col extends AbstractBlockLayout {
 	public function render(
         PhpRenderer $view, SitePageBlockRepresentation $block
     ) {
+        $cols = Utility::parse( $block->dataValue('col') );
+
         return $view->partial(
             'common/block-layout/col',
             [
-                'col' => $block->dataValue('col'),
+                'xs' =>  $cols['xs'],
+                'xso' =>  $cols['xso'],
+                'sm' =>  $cols['sm'],
+                'smo' =>  $cols['smo'],
+                'md' =>  $cols['md'],
+                'mdo' =>  $cols['mdo'],
+                'lg' =>  $cols['lg'],
+                'lgo' =>  $cols['lgo']
             ]
         );
     }
