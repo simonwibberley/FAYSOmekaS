@@ -2,43 +2,44 @@
 
     <div class="fays-welcome">
         <div class="row">
-            <h1 class="col-6 fays-welcome-1"><?= $this->heading1 ?></h1>
+            <h1 class="col-6 fays-welcome-1 h1"><?= $this->heading1 ?></h1>
         </div>
         <div class="row ">
-            <h1 class="offset-4 col-8 fays-welcome-2"><?= $this->heading2 ?></h1>
+            <h2 class="col-12 offset-md-4 col-md-8 fays-welcome-2"><?= $this->heading2 ?></h2>
         </div>
     </div>
     <div class="row">
-        <div class="col-6">
+        <div class="col-12 col-md-6">
             <?= $this->html ?>
         </div>
 
-        <div class="col-6 fays-block-pad">
+        <div class="col-12 col-md-6">
+            <div class="fays-block-pad d-none d-md-block">
+                &nbsp;
+            </div>
             <div class="row">
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <div class="fays-block">
                         <a href="<?= $this->link1 ?>">
                             <?= $this->link1Text ?>
                         </a>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <div class="fays-block">
                         <a href="<?= $this->link2 ?>">
                             <?= $this->link2Text ?>
                         </a>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <div class="fays-block">
                         <a href="<?= $this->link3 ?>">
                             <?= $this->link3Text ?>
                         </a>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <div class="fays-block">
                         <a href="<?= $this->link4 ?>">
                             <?= $this->link4Text ?>
